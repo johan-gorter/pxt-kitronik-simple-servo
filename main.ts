@@ -2,7 +2,7 @@
  * Blocks for driving the Kitronik Simple Servo Board
  */
 //% weight=100 color=#00A654 icon="\uf013" block="Servo"
-//% groups='["180_Servo", "360_ervo"]'
+//% groups='["180 Servo", "360 Servo"]'
 
 namespace kitronik_simple_servo {
 
@@ -40,15 +40,18 @@ namespace kitronik_simple_servo {
      * @param servoSelection is the selection of the servo to control
      * @param degrees is the position which the servo is set to
      */
-    //% groups="180_Servo"
+    //% group="180 Servo"
     //% blockId=kitronik_simple_servo_angle
-    //% block="set servo %servoSelection angle to %degrees=protractorPicker degrees"
+    //% block="set servo %servoSelection angle to %degrees degrees"
     //% color=#00A654
     //% degrees.min=0 degrees.max=180
     //% degrees.defl=90
-    //% degrees.fieldEditor="protractorPicker"
+    //% degrees.shadow="protractorPicker"
     //% weight=100 blockGap=8
     export function setServoAngle(servoSelection: ServoChoice, degrees: number) {
+        if (degrees > 180) degrees = 180
+        if (degrees < 0) degrees = 0
+
         if (servoSelection == ServoChoice.servo1){
             pins.servoWritePin(servo1Pin, degrees)
         }
@@ -58,7 +61,6 @@ namespace kitronik_simple_servo {
         else if (servoSelection == ServoChoice.servo3){
             pins.servoWritePin(servo3Pin, degrees)
         }
-        
     }
 
 
@@ -66,9 +68,9 @@ namespace kitronik_simple_servo {
      * Set the selected servo back to neutral position
      * @param servoSelection is the selection of the servo to control
      */
-    //% groups="180_Servo"
+    //% group="180 Servo"
     //% blockId=kitronik_simple_servo_neutral
-    //% block="set servo %servoSelection to neutral position"
+    //% block="set servo %servoSelection to central position"
     //% color=#00A654
     //% weight=90 blockGap=8
     export function setServoNeutral(servoSelection: ServoChoice) {
@@ -89,14 +91,17 @@ namespace kitronik_simple_servo {
      * @param direction is the choice direction for the servo to move either clockwise or counter-clockwise
      * @param percentSpeed is the percentage of speed between neutral position and full end point
      */
-    //% groups="360_Servo"
+    //% group="360 Servo"
     //% blockId=kitronik_simple_servo_run_percentage
-    //% block="set servo %servoSelection to turn %direction at %percentSpeed"
+    //% block="set servo %servoSelection to turn %direction at %percentSpeed \\% speed"
     //% percentSpeed.min=0 percentSpeed.max=100
     //% percentSpeed.defl=50
     //% color=#00A654
     //% weight=80 blockGap=8
     export function servoRunPercentage(servoSelection: ServoChoice, direction: ServoDirection, percentSpeed: number) {
+        if (percentSpeed > 100) percentSpeed = 100
+        if (percentSpeed < 0) percentSpeed = 0
+
         let speed = 90
         if (direction == ServoDirection.CW){
             speed = Math.round(Math.map(percentSpeed, 0, 100, 90, 180))
@@ -120,7 +125,7 @@ namespace kitronik_simple_servo {
      * Stop the selected servo moving
      * @param servoSelection is the selection of the servo to control
      */
-    //% groups="360_Servo"
+    //% group="360 Servo"
     //% blockId=kitronik_simple_servo_stop
     //% block="stop servo %servoSelection"
     //% color=#00A654
