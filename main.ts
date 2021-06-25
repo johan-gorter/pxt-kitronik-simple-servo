@@ -2,7 +2,7 @@
  * Blocks for driving the Kitronik Simple Servo Board
  */
 //% weight=100 color=#00A654 icon="\uf013" block="Servo"
-//% groups='["180 Servo", "360 Servo"]'
+//% groups='["180_Servo", "360_ervo"]'
 
 namespace kitronik_simple_servo {
 
@@ -35,61 +35,67 @@ namespace kitronik_simple_servo {
     let servo2Pin = AnalogPin.P15
     let servo3Pin = AnalogPin.P16
 
-
     /**
      * Turn the selected servo to a required degree turn
+     * @param servoSelection is the selection of the servo to control
+     * @param degrees is the position which the servo is set to
      */
-    //% groups="180 Servo"
+    //% groups="180_Servo"
     //% blockId=kitronik_simple_servo_angle
-    //% block="set servo %servoSelection to angle %degrees"
+    //% block="set servo %servoSelection angle to %degrees=protractorPicker degrees"
     //% color=#00A654
     //% degrees.min=0 degrees.max=180
     //% degrees.defl=90
-    //% degrees.fieldEditor="gridpicker"
+    //% degrees.fieldEditor="protractorPicker"
     //% weight=100 blockGap=8
     export function setServoAngle(servoSelection: ServoChoice, degrees: number) {
         if (servoSelection == ServoChoice.servo1){
-            pins.servoWritePin(servo1Pin, degrees);
+            pins.servoWritePin(servo1Pin, degrees)
         }
         else if (servoSelection == ServoChoice.servo2){
-            pins.servoWritePin(servo2Pin, degrees);
+            pins.servoWritePin(servo2Pin, degrees)
         }
         else if (servoSelection == ServoChoice.servo3){
-            pins.servoWritePin(servo3Pin, degrees);
+            pins.servoWritePin(servo3Pin, degrees)
         }
         
     }
 
+
     /**
      * Set the selected servo back to neutral position
+     * @param servoSelection is the selection of the servo to control
      */
-    //% groups="180 Servo"
+    //% groups="180_Servo"
     //% blockId=kitronik_simple_servo_neutral
     //% block="set servo %servoSelection to neutral position"
     //% color=#00A654
-    //% weight=100 blockGap=8
+    //% weight=90 blockGap=8
     export function setServoNeutral(servoSelection: ServoChoice) {
         if (servoSelection == ServoChoice.servo1){
-            pins.servoWritePin(servo1Pin, 90);
+            pins.servoWritePin(servo1Pin, 90)
         }
         else if (servoSelection == ServoChoice.servo2){
-            pins.servoWritePin(servo2Pin, 90);
+            pins.servoWritePin(servo2Pin, 90)
         }
         else if (servoSelection == ServoChoice.servo3){
-            pins.servoWritePin(servo3Pin, 90);
+            pins.servoWritePin(servo3Pin, 90)
         } 
     }
 
     /**
      * Set the selected servo back to neutral position
+     * @param servoSelection is the selection of the servo to control
+     * @param direction is the choice direction for the servo to move either clockwise or counter-clockwise
+     * @param percentSpeed is the percentage of speed between neutral position and full end point
      */
-    //% groups="360 Servo"
-    //% blockId=kitronik_simple_servo_neutral
+    //% groups="360_Servo"
+    //% blockId=kitronik_simple_servo_run_percentage
     //% block="set servo %servoSelection to turn %direction at %percentSpeed"
     //% percentSpeed.min=0 percentSpeed.max=100
     //% percentSpeed.defl=50
     //% color=#00A654
-    //% weight=100 blockGap=8
+    //% weight=80 blockGap=8
     export function servoRunPercentage(servoSelection: ServoChoice, direction: ServoDirection, percentSpeed: number) {
         let speed = 90
         if (direction == ServoDirection.CW){
@@ -100,13 +106,34 @@ namespace kitronik_simple_servo {
         }
 
         if (servoSelection == ServoChoice.servo1){
-            pins.servoWritePin(servo1Pin, speed);
+            pins.servoWritePin(servo1Pin, speed)
         }
         else if (servoSelection == ServoChoice.servo2){
-            pins.servoWritePin(servo2Pin, speed);
+            pins.servoWritePin(servo2Pin, speed)
         }
         else if (servoSelection == ServoChoice.servo3){
-            pins.servoWritePin(servo3Pin, speed);
+            pins.servoWritePin(servo3Pin, speed)
+        } 
+    }
+
+    /**
+     * Stop the selected servo moving
+     * @param servoSelection is the selection of the servo to control
+     */
+    //% groups="360_Servo"
+    //% blockId=kitronik_simple_servo_stop
+    //% block="stop servo %servoSelection"
+    //% color=#00A654
+    //% weight=80 blockGap=8
+    export function servoStop(servoSelection: ServoChoice) {
+        if (servoSelection == ServoChoice.servo1){
+            pins.digitalWritePin(DigitalPin.P8, 0)
+        }
+        else if (servoSelection == ServoChoice.servo2){
+            pins.digitalWritePin(DigitalPin.P15, 0)
+        }
+        else if (servoSelection == ServoChoice.servo3){
+            pins.digitalWritePin(DigitalPin.P16, 0)
         } 
     }
 
