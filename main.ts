@@ -125,11 +125,10 @@ namespace kitronik_simple_servo {
      * Stop the selected servo moving
      * @param servoSelection is the selection of the servo to control
      */
-    //% group="360 Servo"
     //% blockId=kitronik_simple_servo_stop
     //% block="stop servo %servoSelection"
     //% color=#00A654
-    //% weight=80 blockGap=8
+    //% weight=100 blockGap=8
     export function servoStop(servoSelection: ServoChoice) {
         if (servoSelection == ServoChoice.servo1){
             pins.digitalWritePin(DigitalPin.P8, 0)
