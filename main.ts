@@ -1,5 +1,5 @@
 /**
- * Blocks for driving the Kitronik Simple Servo Board
+ * Blocks for driving the Kitronik Simple Servo Control Board
  */
 //% weight=100 color=#00A654 icon="\uf013" block="Servo"
 //% groups='["180 Servo", "360 Servo"]'
@@ -86,7 +86,7 @@ namespace kitronik_simple_servo {
     }
 
     /**
-     * Set the selected servo back to neutral position
+     * Set the selected continuos servo with a direction and percentage speed
      * @param servoSelection is the selection of the servo to control
      * @param direction is the choice direction for the servo to move either clockwise or counter-clockwise
      * @param percentSpeed is the percentage of speed between neutral position and full end point
