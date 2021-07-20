@@ -38,14 +38,6 @@ kitronik_simple_servo.servoStop(kitronik_simple_servo.ServoChoice.servo1)
 ```
 For any type of servo, this block will stop driving the servo with a PWM signal.  To engage the servo again, any of the servo blocks will start sending the servo PWM signal.
 
-
-## Blocks preview
-
-This image shows the blocks code from the last commit in master.
-This image may take a few minutes to refresh.
-
-![A rendered view of the blocks](https://github.com/philatkitronik/pxt-kitronik-simple-servo/raw/master/.github/makecode/blocks.png)
-
 ## License
 
 MIT
