@@ -29,14 +29,14 @@ namespace kitronik_simple_servo {
     }
 
     /**
-     * gobal functions to set the servo pins for each servo 
+     * Global variables to set the servo pins for each servo 
      */
     let servo1Pin = AnalogPin.P8
     let servo2Pin = AnalogPin.P15
     let servo3Pin = AnalogPin.P16
 
     /**
-     * Turn the selected servo to a required degree turn
+     * Turn the selected servo to the angle set in degrees
      * @param servoSelection is the selection of the servo to control
      * @param degrees is the position which the servo is set to
      */
@@ -65,7 +65,7 @@ namespace kitronik_simple_servo {
 
 
     /**
-     * Set the selected servo back to neutral position
+     * Turn the selected servo back to a neutral position at 90 degrees
      * @param servoSelection is the selection of the servo to control
      */
     //% group="180 Servo"
@@ -86,7 +86,7 @@ namespace kitronik_simple_servo {
     }
 
     /**
-     * Set the selected continuos servo with a direction and percentage speed
+     * For a continuous rotation servo, set the rotation direction and the percentage speed (0 to 100%)
      * @param servoSelection is the selection of the servo to control
      * @param direction is the choice direction for the servo to move either clockwise or counter-clockwise
      * @param percentSpeed is the percentage of speed between neutral position and full end point
