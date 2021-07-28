@@ -19,7 +19,7 @@ namespace kitronik_simple_servo {
     }
 
     /**
-     * Selection of direction turn for continous mservos
+     * Selection of direction to turn for continuous servos
      */
     export enum ServoDirection {
         //% block="clockwise"
