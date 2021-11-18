@@ -1,13 +1,5 @@
 # Kitronik :CREATE Simple Servo Control Board for BBC micro:bit
 
-## Use as Extension
-
-This repository can be added as an **extension** in MakeCode.
-
-* open [https://makecode.microbit.org/](https://makecode.microbit.org/)
-* click on **New Project**
-* click on **Extensions** under the gearwheel menu
-* search for "Simple Servo" or enter **https://github.com/kitronikltd/pxt-kitronik-simple-servo** and import
 
 # pxt-kitronik-simple-servo Blocks
 
@@ -48,3 +40,12 @@ MIT
 
 * for PXT/microbit
 (The metadata above is needed for package search.)
+
+## Use as Extension
+
+This repository can be added as an **extension** in MakeCode.
+
+* open [https://makecode.microbit.org/](https://makecode.microbit.org/)
+* click on **New Project**
+* click on **Extensions** under the gearwheel menu
+* search for "Simple Servo" or enter **https://github.com/kitronikltd/pxt-kitronik-simple-servo** and import
