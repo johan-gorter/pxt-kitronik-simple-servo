@@ -11,7 +11,8 @@
     },
     "files": [
         "main.ts",
-        "README.md"
+        "README.md",
+        "test.ts"
     ],
     "targetVersions": {
         "target": "4.1.20",
