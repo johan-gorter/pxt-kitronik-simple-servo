@@ -13,5 +13,5 @@ forever(function() {
     else if (angle < -90)
         da = 5
     angle += da    
-    pause(100)
+    pause(50)
 })
