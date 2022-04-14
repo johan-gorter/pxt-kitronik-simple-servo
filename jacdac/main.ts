@@ -24,11 +24,13 @@ namespace servers {
         readonly servoChoice: kitronik_simple_servo.ServoChoice
         angle: number
         enabled: boolean
+        offset: number
 
         constructor(name: string, servoChoice: kitronik_simple_servo.ServoChoice) {
             super(jacdac.SRV_SERVO, { instanceName: name })
             this.servoChoice = servoChoice
             this.angle = 90
+            this.offset = 0
             this.enabled = false
             kitronik_simple_servo.servoStop(this.servoChoice)
         }
@@ -36,11 +38,13 @@ namespace servers {
         handlePacket(pkt: jacdac.JDPacket) {
             this.enabled = this.handleRegBool(pkt, jacdac.ServoReg.Enabled, this.enabled)
             this.angle = this.handleRegValue(pkt, jacdac.ServoReg.Angle, jacdac.ServoRegPack.Angle, this.angle)
+            this.offset = this.handleRegValue(pkt, jacdac.ServoReg.Offset, jacdac.ServoRegPack.Offset, this.offset)
+            this.handleRegValue(pkt, jacdac.ServoReg.CurrentAngle, jacdac.ServoRegPack.CurrentAngle, this.angle + this.offset)
 
             if (!this.enabled)
                 kitronik_simple_servo.servoStop(this.servoChoice)
             else
-                kitronik_simple_servo.setServoAngle(this.servoChoice, this.angle)
+                kitronik_simple_servo.setServoAngle(this.servoChoice, this.angle + this.offset)
         }
     }
 
