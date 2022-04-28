@@ -3,9 +3,10 @@
     "version": "0.0.9",
     "dependencies": {
         "core": "*",
-        "jacdac": "github:microsoft/pxt-jacdac#v0.10.14",
-        "jacdac-servo": "github:microsoft/pxt-jacdac/servo#v0.10.14",
-        "jacdac-motor": "github:microsoft/pxt-jacdac/motor#v0.10.14"
+        "jacdac": "github:microsoft/pxt-jacdac#v0.10.15",
+        "jacdac-servo": "github:microsoft/pxt-jacdac/servo#v0.10.15",
+        "jacdac-motor": "github:microsoft/pxt-jacdac/motor#v0.10.15",
+        "jacdac-servo-server": "github:microsoft/pxt-jacdac/servo-server#v0.10.15"
     },
     "files": [
         "main.ts",
