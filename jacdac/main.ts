@@ -1,6 +1,3 @@
-//% deprecated
-namespace kitronik_simple_servo { }
-
 namespace modules {
     /**
      * Client for the servo1 servo
