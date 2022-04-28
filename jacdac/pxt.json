@@ -3,9 +3,6 @@
     "version": "0.0.8",
     "dependencies": {
         "core": "*",
-        "radio": "*",
-        "microphone": "*",
-        "pxt-kitronik-simple-servo": "github:pelikhan/pxt-kitronik-simple-servo",
         "jacdac": "github:microsoft/pxt-jacdac#v0.10.14",
         "jacdac-servo": "github:microsoft/pxt-jacdac/servo#v0.10.14",
         "jacdac-motor": "github:microsoft/pxt-jacdac/motor#v0.10.14"
