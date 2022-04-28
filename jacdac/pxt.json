@@ -1,6 +1,6 @@
 {
     "name": "kitronik-simple-servo-jacdac",
-    "version": "0.0.10",
+    "version": "0.0.11",
     "dependencies": {
         "core": "*",
         "jacdac": "github:microsoft/pxt-jacdac#v0.10.16",
