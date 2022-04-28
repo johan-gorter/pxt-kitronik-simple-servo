@@ -21,18 +21,20 @@ namespace modules {
 
 namespace servers {
     class ServoServer extends jacdac.Server {
-        readonly servoChoice: kitronik_simple_servo.ServoChoice
+        dpin: DigitalPin
+        apin: AnalogPin
         angle: number
         enabled: boolean
         offset: number
 
-        constructor(name: string, servoChoice: kitronik_simple_servo.ServoChoice) {
+        constructor(name: string, dpin: DigitalPin, apin: AnalogPin) {
             super(jacdac.SRV_SERVO, { instanceName: name })
-            this.servoChoice = servoChoice
+            this.dpin = dpin
+            this.apin = apin
             this.angle = 90
             this.offset = 0
             this.enabled = false
-            kitronik_simple_servo.servoStop(this.servoChoice)
+            this.sync()
         }
 
         handlePacket(pkt: jacdac.JDPacket) {
@@ -41,19 +43,26 @@ namespace servers {
             this.offset = this.handleRegValue(pkt, jacdac.ServoReg.Offset, jacdac.ServoRegPack.Offset, this.offset)
             this.handleRegValue(pkt, jacdac.ServoReg.CurrentAngle, jacdac.ServoRegPack.CurrentAngle, this.angle + this.offset)
 
+            this.sync()
+        }
+
+        sync() {
             if (!this.enabled)
-                kitronik_simple_servo.servoStop(this.servoChoice)
-            else
-                kitronik_simple_servo.setServoAngle(this.servoChoice, this.angle + this.offset)
+                pins.digitalWritePin(this.dpin, 0)
+            else {
+                const degrees = Math.clamp(0, 180, this.angle + this.offset)
+                pins.servoWritePin(this.apin, degrees)
+            }
         }
     }
 
     function start() {
         jacdac.productIdentifier = 0x3cc2d4b4
+        jacdac.deviceDescription = "Kitronik Simple Servo"
         jacdac.startSelfServers(() => [
-            new ServoServer("servo1", kitronik_simple_servo.ServoChoice.servo1),
-            new ServoServer("servo2", kitronik_simple_servo.ServoChoice.servo2),
-            new ServoServer("servo3", kitronik_simple_servo.ServoChoice.servo3),
+            new ServoServer("servo1", DigitalPin.P8, AnalogPin.P8),
+            new ServoServer("servo2", DigitalPin.P15, AnalogPin.P15),
+            new ServoServer("servo3", DigitalPin.P16, AnalogPin.P16),
         ])
     }
     start()
