@@ -3,17 +3,17 @@ namespace modules {
      * Client for the servo1 servo
      */
     //% fixedInstance whenUsed block="kitronik servo1"
-    export const kitronikServo1 = new ServoClient("kitronik servo1?dev=self&srvo=0")
+    export const kitronikServo1 = new ServoClient("kitronik servo1?dev=self&srvo=0&name=S1")
     /**
      * Client for the servo2 servo
      */
     //% fixedInstance whenUsed block="kitronik servo2"
-    export const kitronikServo2 = new ServoClient("kitronik servo2?dev=self&srvo=1")
+    export const kitronikServo2 = new ServoClient("kitronik servo2?dev=self&srvo=1&name=S2")
     /**
      * Client for the servo3 servo
      */
     //% fixedInstance whenUsed block="kitronik servo3"
-    export const kitronikServo3 = new ServoClient("kitronik servo3?dev=self&srvo=2")
+    export const kitronikServo3 = new ServoClient("kitronik servo3?dev=self&srvo=2&name=S3")
 }
 
 namespace servers {
