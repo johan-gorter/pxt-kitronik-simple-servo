@@ -1,0 +1,26 @@
+{
+    "name": "kitronik-simple-servo-jacdac",
+    "version": "0.0.14",
+    "dependencies": {
+        "core": "*",
+        "jacdac": "github:microsoft/pxt-jacdac#v0.10.53",
+        "jacdac-servo": "github:microsoft/pxt-jacdac/servo#v0.10.53",
+        "jacdac-motor": "github:microsoft/pxt-jacdac/motor#v0.10.53",
+        "jacdac-servo-server": "github:microsoft/pxt-jacdac/servo-server#v0.10.53"
+    },
+    "files": [
+        "main.ts",
+        "README.md"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "targetVersions": {
+        "target": "4.1.45",
+        "targetId": "microbit"
+    },
+    "supportedTargets": [
+        "microbit"
+    ],
+    "preferredEditor": "tsprj"
+}
