@@ -1,0 +1,16 @@
+{
+  "kitronik_simple_servo": "Blocks for driving the Kitronik Simple Servo Control Board",
+  "kitronik_simple_servo.ServoChoice": "Selection of the servo to drive",
+  "kitronik_simple_servo.ServoDirection": "Selection of direction to turn for continuous servos",
+  "kitronik_simple_servo.servoRunPercentage": "For a continuous rotation servo, set the rotation direction and the percentage speed (0 to 100%)",
+  "kitronik_simple_servo.servoRunPercentage|param|direction": "is the choice direction for the servo to move either clockwise or counter-clockwise",
+  "kitronik_simple_servo.servoRunPercentage|param|percentSpeed": "is the percentage of speed between neutral position and full end point",
+  "kitronik_simple_servo.servoRunPercentage|param|servoSelection": "is the selection of the servo to control",
+  "kitronik_simple_servo.servoStop": "Stop the selected servo moving",
+  "kitronik_simple_servo.servoStop|param|servoSelection": "is the selection of the servo to control",
+  "kitronik_simple_servo.setServoAngle": "Turn the selected servo to the angle set in degrees",
+  "kitronik_simple_servo.setServoAngle|param|degrees": "is the position which the servo is set to",
+  "kitronik_simple_servo.setServoAngle|param|servoSelection": "is the selection of the servo to control",
+  "kitronik_simple_servo.setServoNeutral": "Turn the selected servo back to a neutral position at 90 degrees",
+  "kitronik_simple_servo.setServoNeutral|param|servoSelection": "is the selection of the servo to control"
+}

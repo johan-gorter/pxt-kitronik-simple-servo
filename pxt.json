@@ -9,7 +9,9 @@
     },
     "files": [
         "README.md",
-        "main.ts"
+        "main.ts",
+        "_locales/nl/pxt-kitronik-simple-servo-jsdoc-strings.json",
+        "_locales/nl/pxt-kitronik-simple-servo-strings.json"
     ],
     "testFiles": [
         "test.ts"
