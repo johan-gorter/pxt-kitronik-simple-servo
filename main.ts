@@ -95,7 +95,7 @@ namespace kitronik_simple_servo {
     //% block="set servo %servoSelection angle to %degrees degrees"
     //% color=#00A654
     //% degrees.min=0 degrees.max=270
-    //% degrees.defl=90
+    //% degrees.defl=135
     //% degrees.shadow="protractorPicker"
     //% weight=100 blockGap=8
     export function setServoAngle270(servoSelection: ServoChoice, degrees: number) {
