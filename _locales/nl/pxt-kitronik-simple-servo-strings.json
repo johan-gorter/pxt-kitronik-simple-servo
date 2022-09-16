@@ -1,0 +1,15 @@
+{
+  "kitronik_simple_servo.ServoChoice.servo1|block": "1",
+  "kitronik_simple_servo.ServoChoice.servo2|block": "2",
+  "kitronik_simple_servo.ServoChoice.servo3|block": "3",
+  "kitronik_simple_servo.ServoDirection.CCW|block": "tegen de klok in",
+  "kitronik_simple_servo.ServoDirection.CW|block": "met de klok mee",
+  "kitronik_simple_servo.servoRunPercentage|block": "zet de draairichting van servo %servoSelection op %direction en de snelheid op %percentSpeed \\%",
+  "kitronik_simple_servo.servoStop|block": "stop servo %servoSelection",
+  "kitronik_simple_servo.setServoAngle|block": "zet de draaihoek van servo %servoSelection op %degrees graden",
+  "kitronik_simple_servo.setServoNeutral|block": "zet servo %servoSelection in het midden",
+  "kitronik_simple_servo|block": "Servo",
+  "{id:category}Kitronik_simple_servo": "Kitronik_simple_servo",
+  "{id:group}180 Servo": "180 Servo",
+  "{id:group}360 Servo": "360 Servo"
+}
