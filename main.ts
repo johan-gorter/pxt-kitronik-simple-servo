@@ -2,7 +2,7 @@
  * Blocks for driving the Kitronik Simple Servo Control Board
  */
 //% weight=100 color=#00A654 icon="\uf013" block="Servo"
-//% groups='["180 Servo", "360 Servo"]'
+//% groups='["180 Servo", "270 Servo", "360 Servo"]'
 
 namespace kitronik_simple_servo {
 
@@ -83,6 +83,50 @@ namespace kitronik_simple_servo {
         else if (servoSelection == ServoChoice.servo3){
             pins.servoWritePin(servo3Pin, 90)
         } 
+    }
+
+     /**
+     * Turn the selected servo to the angle set in degrees
+     * @param servoSelection is the selection of the servo to control
+     * @param degrees is the position which the servo is set to
+     */
+    //% group="270 Servo"
+    //% blockId=kitronik_simple_servo_angle_270
+    //% block="set servo %servoSelection angle to %degrees degrees"
+    //% color=#00A654
+    //% degrees.min=0 degrees.max=270
+    //% degrees.defl=90
+    //% degrees.shadow="protractorPicker"
+    //% weight=100 blockGap=8
+    export function setServoAngle270(servoSelection: ServoChoice, degrees: number) {
+        if (degrees > 270) degrees = 270
+        if (degrees < 0) degrees = 0
+
+        degrees = (degrees / 270) * 180
+            
+        if (servoSelection == ServoChoice.servo1){
+            pins.servoWritePin(servo1Pin, degrees)
+        }
+        else if (servoSelection == ServoChoice.servo2){
+            pins.servoWritePin(servo2Pin, degrees)
+        }
+        else if (servoSelection == ServoChoice.servo3){
+            pins.servoWritePin(servo3Pin, degrees)
+        }
+    }
+
+
+    /**
+     * Turn the selected servo back to a neutral position at 135 degrees
+     * @param servoSelection is the selection of the servo to control
+     */
+    //% group="270 Servo"
+    //% blockId=kitronik_simple_servo_neutral_270
+    //% block="set servo %servoSelection to central position"
+    //% color=#00A654
+    //% weight=90 blockGap=8
+    export function setServoNeutral270(servoSelection: ServoChoice) {
+        setServoNeutral(servoSelection)
     }
 
     /**
