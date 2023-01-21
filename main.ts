@@ -104,10 +104,10 @@ namespace kitronik_simple_servo {
 
         let speed = 90
         if (direction == ServoDirection.CW){
-            speed = Math.round(Math.map(percentSpeed, 0, 100, 90, 180))
+            speed = Math.round(pins.map(percentSpeed, 0, 100, 90, 180))
         }
         else if (direction == ServoDirection.CCW){
-            speed = Math.round(Math.map(percentSpeed, 0, 100, 90, 0))
+            speed = Math.round(pins.map(percentSpeed, 0, 100, 90, 0))
         }
 
         if (servoSelection == ServoChoice.servo1){
