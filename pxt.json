@@ -1,7 +1,7 @@
 {
-    "name": "pxt-kitronik-simple-servo",
+    "name": "pxt-kitronik-simple-servo-fix",
     "version": "0.0.4",
-    "description": "",
+    "description": "trying to get ipad to work",
     "dependencies": {
         "core": "*",
         "radio": "*",
@@ -9,12 +9,9 @@
     },
     "files": [
         "README.md",
-        "main.ts",
-        "_locales/nl/pxt-kitronik-simple-servo-jsdoc-strings.json",
-        "_locales/nl/pxt-kitronik-simple-servo-strings.json"
+        "main.ts"
     ],
     "testFiles": [
-        "test.ts"
     ],
     "public": true,
     "targetVersions": {
